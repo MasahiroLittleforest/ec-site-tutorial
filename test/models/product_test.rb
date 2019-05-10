@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  description :text             not null
+#  image       :string
 #  name        :string           not null
 #  price       :integer          not null
 #  unit        :string           default("yen"), not null
