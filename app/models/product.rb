@@ -13,6 +13,8 @@
 #
 
 class Product < ApplicationRecord
+    include Hashid::Rails
+
     mount_uploader :image, ImageUploader
     
     validates :name, presence: true

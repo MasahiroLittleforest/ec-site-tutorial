@@ -1,0 +1,11 @@
+= image_tag @product.image.url || "sample.png"
+
+%p
+  = @product.name
+%p
+  = @product.description
+%p
+  = @product.display_price
+
+.btn.btn-large
+  買い物かごに入れる
