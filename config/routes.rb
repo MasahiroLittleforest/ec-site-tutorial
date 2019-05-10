@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   resource :basket, only: [:show]
+  resource :charge, only: [:create]
   resources :products, only: [:new, :show, :create] do
     scope module: :products do
       resources :add_to_baskets, only: [:create]

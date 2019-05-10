@@ -20,7 +20,10 @@ class Product < ApplicationRecord
     extend Enumerize
     enumerize :unit, in: [:yen, :usd]
 
+    USD_RATE = 110.freeze
+
     has_many :basket_products, dependent: :destroy
+    has_many :purchase_record_products, dependent: :destroy
 
     validates :name, presence: true
     validates :description, presence: true
