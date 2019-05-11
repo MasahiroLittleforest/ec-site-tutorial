@@ -10,6 +10,11 @@
 #  unit        :string           default("yen"), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  admin_id    :integer          not null
+#
+# Indexes
+#
+#  index_products_on_admin_id  (admin_id)
 #
 
 class Product < ApplicationRecord
@@ -21,6 +26,8 @@ class Product < ApplicationRecord
     enumerize :unit, in: [:yen, :usd]
 
     USD_RATE = 110.freeze
+
+    belongs_to :admin
 
     has_many :basket_products, dependent: :destroy
     has_many :purchase_record_products, dependent: :destroy

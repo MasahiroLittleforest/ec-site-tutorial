@@ -13,8 +13,27 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <nav>
+      <div class="nav-wrapper">
+        <ul class="right hide-on-med-and-down" id="nav-mobile">
+          <% if current_user.present? %>
+            <li>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+            </li>
+          <% elsif current_admin.present? %>
+            <li>
+              <%= link_to 'ログアウト(管理者)', destroy_admin_session_path, method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <% if notice || alert %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
